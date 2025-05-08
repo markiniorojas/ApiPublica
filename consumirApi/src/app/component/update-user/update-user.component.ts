@@ -41,7 +41,7 @@ export class UpdateUserComponent implements OnInit {
       }
   
       this.servicio.Update(this.id,entidad).subscribe(() => {
-        this.router.navigate(['user']);
+        this.router.navigate(['/principal/user']);
       })
     }
 }

@@ -18,7 +18,7 @@ export class CrearUserComponent {
 
     this.servicio.Create(user).subscribe(()=>{
       alert("Persona creada")
-      this.router.navigate(['user'])
+      this.router.navigate(['/principal/user'])
     })
   }
 }
