@@ -4,38 +4,35 @@ import { environment } from '../../../environments/environment.development';
 import { map, Observable } from 'rxjs';
 
 export class GenericService<T, ICreate> {
-  public _enpont: string;
+  public _endpont: string;
   protected Http = inject(HttpClient);
   private URLBase = environment.apiURL;
 
   constructor(enpoint: string) {
-    this._enpont = `${this.URLBase}/${enpoint}`;
+    this._endpont = `${this.URLBase}/${enpoint}`;
   }
 
   // Para obtener todos los recursos (ej. /films, /people)
   public GetAll(): Observable<T[]> {
-    return this.Http.get<{ message: string; results: T[] }>(this._enpont).pipe(
-      map(res => res.results)
-    );
+    return this.Http.get<T[]>(this._endpont)
+
   }
 
   // Para obtener un recurso por ID (ej. /films/1)
-  public GetById(id: number | string): Observable<T> {
-    return this.Http.get<{ message: string; result: T }>(`${this._enpont}/${id}`).pipe(
-      map(res => res.result)
-    );
+  public GetById(id: number): Observable<T> {
+    return this.Http.get<T>(`${this._endpont}/${id}`);
   }
 
-  // SWAPI no permite crear, actualizar ni eliminar, pero los dejamos vacíos si estás practicando arquitectura completa:
-  public Create(entity: ICreate): Observable<any> {
-    throw new Error('Not supported by SWAPI');
+  public Create(entity: ICreate): Observable< ICreate> {
+    return this.Http.post< ICreate>(this._endpont, entity);
   }
 
-  public Update(entity: ICreate): Observable<any> {
-    throw new Error('Not supported by SWAPI');
+  public Update(id:number,entity: ICreate): Observable<any> {
+    // const id = (entity as any).id;
+    return this.Http.put<any>(`${this._endpont}/${id}`, entity);
   }
 
-  public Deleted(id: number | string): Observable<any> {
-    throw new Error('Not supported by SWAPI');
+  public Delete(id: number): Observable<any> {
+    return this.Http.delete<any>(`${this._endpont}/${id}`);
   }
 }

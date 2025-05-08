@@ -1,0 +1,17 @@
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+  }
+  
+  label {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  button {
+    align-self: flex-start;
+    padding: 6px 12px;
+  }
+  

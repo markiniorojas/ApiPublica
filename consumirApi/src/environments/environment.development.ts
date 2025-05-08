@@ -1,3 +1,3 @@
 export const environment = {
-    apiURL : 'https://www.swapi.tech/api/'
+    apiURL : 'https://jsonplaceholder.typicode.com'
 };

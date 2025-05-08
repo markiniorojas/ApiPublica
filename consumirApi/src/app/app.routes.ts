@@ -1,15 +1,20 @@
 import { Routes } from '@angular/router';
-import { FilmsComponent } from './component/films/films.component';
+import { UserComponent } from './component/user/user.component';
 import { CharactersComponent } from './component/characters/characters.component';
 import { PlanetsComponent } from './component/planets/planets.component';
 import { SpeciesComponent } from './component/species/species.component';
+import { PrincipalComponent } from './component/principal/principal.component';
+import { CrearUserComponent } from './component/crear-user/crear-user.component';
+import { UpdateUserComponent } from './component/update-user/update-user.component';
 
 
 export const routes: Routes = [
-    {path: '', redirectTo: 'film', pathMatch: 'full'},
-    {path: 'film',component: FilmsComponent,
+    {path: '', redirectTo: 'principal', pathMatch: 'full'},
+    {path: 'principal',component: PrincipalComponent,
         children:[
-            { path: 'film', component: FilmsComponent},
+            { path: 'user', component: UserComponent},
+            { path: 'user/create', component: CrearUserComponent},
+            { path: 'user/update/:id', component: UpdateUserComponent},
             { path: 'characters', component: CharactersComponent},
             { path: 'planets', component: PlanetsComponent},
             { path: 'species', component: SpeciesComponent},
