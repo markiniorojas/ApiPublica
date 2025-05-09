@@ -1,0 +1,22 @@
+<h1>{{titulo}}</h1>
+
+<form (submit)="GuardarCambios()" [formGroup] = "FormPost">
+  <mat-form-field appearance ="outline">
+    <mat-label> Nombre</mat-label>
+    <input [formControl]="FormPost.controls.userId" matInput/>
+  </mat-form-field>
+
+  <mat-form-field appearance ="outline">
+    <mat-label> User Name</mat-label>
+    <input [formControl]="FormPost.controls.title" matInput/>
+  </mat-form-field>
+  
+  <mat-form-field appearance ="outline">
+    <mat-label> Email</mat-label>
+    <input [formControl]="FormPost.controls.boby" matInput/>
+  </mat-form-field>
+  <div>
+    <button type="submit"  mat-flat-button>Guardar Cambios</button>
+    <a mat-stroked-button routerLink="/principal/user"> Cancelar</a>
+  </div>
+</form>

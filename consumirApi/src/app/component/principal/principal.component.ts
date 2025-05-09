@@ -17,7 +17,8 @@ import { MatSidenav } from '@angular/material/sidenav';
     MatListModule,
     MatIconModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
 
   ],
   templateUrl: './principal.component.html',
